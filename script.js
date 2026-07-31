@@ -4,24 +4,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Grab key elements
     const contactBtn = document.getElementById('contactBtn');
     const backToTopBtn = document.getElementById('backToTopBtn');
-    const interactiveCells = document.querySelectorAll('.grid-cell.interactive');
-    const currentVoltageText = document.getElementById('currentVoltage');
-    const targetVoltageText = document.getElementById('targetVoltage');
-    const gameStatus = document.getElementById('gameStatus');
-    const resetCircuitBtn = document.getElementById('resetCircuitBtn');
-    const gameContainer = document.querySelector('.game-container');
+    const openGameBtn = document.getElementById('openGameBtn');
+    const closeGameBtn = document.getElementById('closeGameBtn');
+    const gamePage = document.getElementById('gamePage');
+    const tiles = document.querySelectorAll('.c-tile.pipe');
+    const currentVoltsText = document.getElementById('currentVolts');
+    const circuitStatus = document.getElementById('circuitStatus');
+    const resetLabBtn = document.getElementById('resetLabBtn');
 
-    const BASE_VOLTAGE = 5;
-    let targetVoltage = 7;
+    const BASE_VOLTS = 5;
+    const TARGET_VOLTS = 8;
 
-    // Contact button click event
+    // Contact button click
     if (contactBtn) {
         contactBtn.addEventListener('click', () => {
             alert('Thanks for stopping by! Feel free to reach out via email!');
         });
     }
 
-    // Show/Hide "Back to Top" button based on window scroll position
+    // Scroll listeners for Back-To-Top button
     window.addEventListener('scroll', () => {
         if (window.scrollY > 150) {
             backToTopBtn.classList.remove('hidden');
@@ -30,84 +31,77 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Smooth scroll back to top
     backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // DOC OCK GAME LOGIC: Cycling Components & Voltage Calculation
-    const componentTypes = [
-        { type: 'wire', text: '━', modifier: 0 },
-        { type: 'boost', text: '+1V', modifier: 1 },
-        { type: 'damp', text: '-1V', modifier: -1 }
-    ];
+    // OPEN / CLOSE DEDICATED GAME PAGE
+    if (openGameBtn && closeGameBtn && gamePage) {
+        openGameBtn.addEventListener('click', () => {
+            gamePage.classList.remove('hidden');
+        });
 
-    if (interactiveCells) {
-        interactiveCells.forEach(cell => {
-            cell.addEventListener('click', () => {
-                let currentType = cell.getAttribute('data-type');
-                
-                // Find next component index in the cycle
-                let currentIndex = componentTypes.findIndex(c => c.type === currentType);
-                let nextIndex = (currentIndex + 1) % componentTypes.length;
-                let nextComponent = componentTypes[nextIndex];
+        closeGameBtn.addEventListener('click', () => {
+            gamePage.classList.add('hidden');
+        });
+    }
 
-                // Update cell attributes and content
-                cell.setAttribute('data-type', nextComponent.type);
-                cell.textContent = nextComponent.text;
+    // DOC OCK PUZZLE MECHANICS
+    if (tiles) {
+        tiles.forEach(tile => {
+            tile.addEventListener('click', () => {
+                let rot = parseInt(tile.getAttribute('data-rotation')) || 0;
+                rot = (rot + 90) % 360;
+                tile.setAttribute('data-rotation', rot);
+                tile.style.transform = `rotate(${rot}deg)`;
 
-                // Recalculate total voltage
-                calculateVoltage();
+                evaluateCircuit();
             });
         });
     }
 
-    function calculateVoltage() {
-        let totalVoltage = BASE_VOLTAGE;
+    function evaluateCircuit() {
+        // Correct rotational solution state for continuous path
+        const solution = [0, 90, 0, 0, 180, 0, 0];
+        let pathCorrect = true;
+        let activeVoltage = BASE_VOLTS;
 
-        // Sum up modifiers from active cells
-        interactiveCells.forEach(cell => {
-            let type = cell.getAttribute('data-type');
-            if (type === 'boost') totalVoltage += 1;
-            if (type === 'damp') totalVoltage -= 1;
+        tiles.forEach((tile, idx) => {
+            let rot = parseInt(tile.getAttribute('data-rotation'));
+            let mod = parseInt(tile.getAttribute('data-modifier')) || 0;
+
+            if (rot !== solution[idx]) {
+                pathCorrect = false;
+            } else {
+                activeVoltage += mod;
+            }
         });
 
-        // Update display readout
-        currentVoltageText.textContent = `${totalVoltage}V`;
+        currentVoltsText.textContent = `${activeVoltage}V`;
 
-        // Check against Target Voltage
-        if (totalVoltage === targetVoltage) {
-            gameStatus.textContent = '⚡ Calibration Complete! Voltage Stabilized! 🔬';
-            gameStatus.style.color = '#10b981';
-            gameContainer.classList.add('calibrated');
+        if (pathCorrect && activeVoltage === TARGET_VOLTS) {
+            document.querySelectorAll('.c-tile').forEach(t => t.classList.add('powered'));
+            circuitStatus.textContent = '⚡ Calibration Complete! Voltage Stabilized at 8V! 🚀';
+            circuitStatus.style.color = '#10b981';
         } else {
-            gameStatus.textContent = 'Status: Voltage Mismatch — Adjust Components';
-            gameStatus.style.color = '#f3f4f6';
-            gameContainer.classList.remove('calibrated');
+            document.querySelectorAll('.c-tile.pipe').forEach(t => t.classList.remove('powered'));
+            document.querySelector('.c-tile.target').classList.remove('powered');
+            circuitStatus.textContent = 'Status: Circuit Line Incomplete or Mismatched Voltage';
+            circuitStatus.style.color = '#f3f4f6';
         }
     }
 
-    // Reset Circuit & Target Voltage
-    if (resetCircuitBtn) {
-        resetCircuitBtn.addEventListener('click', () => {
-            // Set random target voltage between 4V and 9V
-            targetVoltage = Math.floor(Math.random() * 6) + 4;
-            targetVoltageText.textContent = `${targetVoltage}V`;
-
-            // Reset cells to plain wires
-            interactiveCells.forEach(cell => {
-                cell.setAttribute('data-type', 'wire');
-                cell.textContent = '━';
+    // Reset / Scramble Tile Rotations
+    if (resetLabBtn) {
+        resetLabBtn.addEventListener('click', () => {
+            const rotOptions = [90, 180, 270];
+            tiles.forEach(tile => {
+                let r = rotOptions[Math.floor(Math.random() * rotOptions.length)];
+                tile.setAttribute('data-rotation', r);
+                tile.style.transform = `rotate(${r}deg)`;
             });
-
-            calculateVoltage();
+            evaluateCircuit();
         });
     }
-
-    // Initial calculation on load
-    calculateVoltage();
 
 });
