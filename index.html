@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- Main Card Container -->
+    <!-- Main Card Container (Wider Layout) -->
     <main class="portfolio-card">
         
         <!-- Header Section -->
@@ -19,44 +19,50 @@
             <p class="tagline">Aspiring Engineer & Tech Enthusiast</p>
         </header>
 
-        <!-- Scrollable Page Views Container -->
-        <div class="content-container" id="scrollContainer">
-            
-            <!-- HOME PAGE SECTION -->
-            <section id="home" class="page-section">
-                <h2>Skills</h2>
-                <div class="skills-grid">
-                    <span class="skill-tag">###</span>
-                </div>
+        <!-- Home Page Content Hub -->
+        <section id="home" class="page-section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">###</span>
+            </div>
 
-                <!-- Interactive Contact Button -->
-                <button id="contactBtn">Get in Touch</button>
-            </section>
+            <!-- Interactive Contact Button -->
+            <button id="contactBtn">Get in Touch</button>
+        </section>
 
-            <!-- PROJECTS SECTION (Section heading acts as nav link) -->
-            <section id="projects" class="page-section">
-                <a href="#projects" class="page-nav-btn">Projects</a>
-                <div class="wip-box">
-                    <h3>Work in Progress</h3>
-                    <p>I will be showcasing my engineering, coding, and robotics projects here soon!</p>
-                </div>
-            </section>
+        <!-- 3 DEDICATED PAGE SECTIONS -->
 
-            <!-- GAME SECTION (Section heading acts as nav link) -->
-            <section id="game" class="page-section">
-                <a href="#game" class="page-nav-btn">Game</a>
-                <div class="wip-box">
-                    <h3>Work in Progress</h3>
-                    <p>An interactive game is currently under construction. Stay tuned!</p>
-                </div>
-            </section>
+        <!-- ABOUT ME PAGE SECTION -->
+        <section id="about" class="page-section">
+            <a href="#about" class="page-nav-btn">About Me</a>
+            <div class="wip-box">
+                <h3>Work in Progress</h3>
+                <p>I will be sharing my background, interests, and STEM journey here soon!</p>
+            </div>
+        </section>
 
-        </div>
+        <!-- PROJECTS PAGE SECTION -->
+        <section id="projects" class="page-section">
+            <a href="#projects" class="page-nav-btn">Projects</a>
+            <div class="wip-box">
+                <h3>Work in Progress</h3>
+                <p>I will be showcasing my engineering, coding, and robotics projects here soon!</p>
+            </div>
+        </section>
 
-        <!-- Back to Top Button (Appears when scrolling down) -->
-        <button id="backToTopBtn" class="back-to-top hidden" aria-label="Back to Top">▲</button>
+        <!-- GAME PAGE SECTION -->
+        <section id="game" class="page-section">
+            <a href="#game" class="page-nav-btn">Game</a>
+            <div class="wip-box">
+                <h3>Work in Progress</h3>
+                <p>An interactive game is currently under construction. Stay tuned!</p>
+            </div>
+        </section>
 
     </main>
+
+    <!-- Global Floating Back to Top Button for Full Page -->
+    <button id="backToTopBtn" class="back-to-top hidden" aria-label="Back to Top">▲</button>
 
     <!-- External JavaScript File -->
     <script src="script.js"></script>
