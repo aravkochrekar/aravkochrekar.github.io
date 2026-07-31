@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Grab key elements from the HTML
     const contactBtn = document.getElementById('contactBtn');
-    const scrollContainer = document.getElementById('scrollContainer');
     const backToTopBtn = document.getElementById('backToTopBtn');
 
     // Contact button click event
@@ -13,21 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Show/Hide "Back to Top" button based on scroll position inside the box
-    scrollContainer.addEventListener('scroll', () => {
-        // Show button if user scrolls down more than 100px
-        if (scrollContainer.scrollTop > 100) {
+    // Show/Hide "Back to Top" button based on window scroll position
+    window.addEventListener('scroll', () => {
+        // Show button if user scrolls down more than 150px on the browser page
+        if (window.scrollY > 150) {
             backToTopBtn.classList.remove('hidden');
         } else {
             backToTopBtn.classList.add('hidden');
         }
     });
 
-    // Smooth scroll back to top when clicked
+    // Smooth brisk scroll back to the top of the browser page when clicked
     backToTopBtn.addEventListener('click', () => {
-        scrollContainer.scrollTo({
+        window.scrollTo({
             top: 0,
-            behavior: 'smooth' // Moderate, smooth scrolling speed back to top
+            behavior: 'smooth'
         });
     });
 
