@@ -1,19 +1,13 @@
-// Wait for the DOM/HTML to fully load before running our script
+// Wait for the HTML document to completely load before running code
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Grab the button element from our HTML using its ID
-    const colorBtn = document.getElementById('colorBtn');
+    // Grab our contact button element from the HTML
+    const contactBtn = document.getElementById('contactBtn');
 
-    // List of fun colors to cycle through when clicked
-    const colors = ['#ff7675', '#55efc4', '#ffeaa7', '#fab1a0', '#74b9ff'];
-
-    // Add a 'click' event listener to the button
-    colorBtn.addEventListener('click', () => {
-        // Pick a random color from our array
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        
-        // Change the background color of the main body
-        document.body.style.background = randomColor;
+    // Add a click event listener to handle interaction
+    contactBtn.addEventListener('click', () => {
+        // Show an interactive alert dialog pop-up with a placeholder email
+        alert('Thanks for stopping by! Feel free to reach out via email at: hello@yourname.com 🚀');
     });
 
 });
