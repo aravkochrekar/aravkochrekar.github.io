@@ -1,7 +1,13 @@
-/* Global styles for the portfolio background */
+/* Global styles for the portfolio background with a STEM / Engineering theme */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    /* Deep engineering dark-mode background with a subtle technical grid overlay */
+    background-color: #0b1329;
+    background-image: 
+        linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 50% 50%, #1e293b 0%, #0b1329 100%);
+    background-size: 30px 30px, 30px 30px, 100% 100%;
     min-height: 100vh;
     margin: 0;
     display: flex;
@@ -10,55 +16,61 @@ body {
     padding: 20px;
 }
 
-/* Main card container styled like a professional profile */
+/* Main card container styled like a professional engineering profile */
 .portfolio-card {
-    background-color: #ffffff;
+    background-color: #111827;
+    border: 1px solid #1f2937;
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(14, 165, 233, 0.1);
     text-align: center;
     max-width: 450px;
     width: 100%;
 }
 
-/* Emoji avatar placeholder styling */
+/* Emoji avatar placeholder styling with a tech glow */
 .avatar-placeholder {
     font-size: 50px;
-    background: #eef2f3;
+    background: #1f2937;
     width: 90px;
     height: 90px;
     line-height: 90px;
     border-radius: 50%;
     margin: 0 auto 15px auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);
+    border: 2px solid #0ea5e9;
 }
 
 /* Header typography */
 h1 {
-    color: #2c3e50;
+    color: #f3f4f6;
     margin: 0 0 5px 0;
     font-size: 28px;
+    letter-spacing: 0.5px;
 }
 
 .tagline {
-    color: #7f8c8d;
+    color: #38bdf8;
     font-size: 15px;
     margin-bottom: 25px;
+    font-weight: 500;
 }
 
 /* Section headings */
 h2 {
-    color: #34495e;
+    color: #93c5fd;
     font-size: 18px;
     margin-top: 20px;
     margin-bottom: 10px;
-    border-bottom: 2px solid #ecf0f1;
+    border-bottom: 2px solid #1f2937;
     padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* About me paragraph */
 .about-section p {
-    color: #555;
+    color: #9ca3af;
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 20px;
@@ -73,10 +85,11 @@ h2 {
     margin-bottom: 25px;
 }
 
-/* Individual skill badges */
+/* Individual skill badges styled like microchips or code tags */
 .skill-tag {
-    background-color: #e0f2fe;
-    color: #0284c7;
+    background-color: rgba(14, 165, 233, 0.1);
+    color: #38bdf8;
+    border: 1px solid rgba(14, 165, 233, 0.3);
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 13px;
@@ -85,7 +98,7 @@ h2 {
 
 /* Interactive call-to-action button */
 button {
-    background-color: #0ea5e9;
+    background: linear-gradient(135deg, #0284c7, #0ea5e9);
     color: white;
     border: none;
     padding: 12px 28px;
@@ -93,12 +106,14 @@ button {
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     width: 100%;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
 }
 
 /* Button hover and active effects */
 button:hover {
-    background-color: #0284c7;
+    background: linear-gradient(135deg, #0ea5e9, #38bdf8);
     transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(14, 165, 233, 0.5);
 }
