@@ -3,44 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My STEM Portfolio</title>
-    <!-- Connects our external CSS stylesheet for styling -->
+    <title>Arav Kochrekar - STEM Portfolio</title>
+    <!-- Link to external CSS styles -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Main card wrapper that holds our portfolio contents -->
+    <!-- Main Card Container -->
     <main class="portfolio-card">
         
-        <!-- Header Section: Holds profile avatar, name, and tagline -->
+        <!-- Header Section -->
         <header class="profile-header">
-            <div class="avatar-placeholder">💻</div>
-            <h1>Alex Developer</h1>
-            <p class="tagline">Aspiring Web Developer & Tech Enthusiast</p>
+            <div class="avatar-placeholder">AK</div>
+            <h1>Arav Kochrekar</h1>
+            <p class="tagline">Aspiring Engineer & Tech Enthusiast</p>
         </header>
 
-        <!-- About Section: Short intro paragraph -->
-        <section class="about-section">
-            <h2>About Me</h2>
-            <p>Welcome to my corner of the web! I love learning how to code, building creative websites, and exploring new technologies.</p>
-        </section>
-
-        <!-- Skills Section: Grid of tech badges -->
-        <section class="skills-section">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <span class="skill-tag">HTML5</span>
-                <span class="skill-tag">CSS3</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Git & GitHub</span>
+        <!-- DEDICATED PAGE BUTTONS ON HOME -->
+        
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="page-section">
+            <a href="#about-page" class="page-nav-btn">About Me</a>
+            <div class="wip-box">
+                <h3>Work in Progress</h3>
+                <p>I will be sharing my background, interests, skills, and STEM journey here soon!</p>
             </div>
         </section>
-        
-        <!-- Action Button: Triggers JavaScript on click -->
-        <button id="contactBtn">Get in Touch</button>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="page-section">
+            <a href="#projects-page" class="page-nav-btn">Projects</a>
+            <div class="wip-box">
+                <h3>Work in Progress</h3>
+                <p>I will be showcasing my engineering, coding, and robotics projects here soon!</p>
+            </div>
+        </section>
+
+        <!-- GAME SECTION BUTTON -->
+        <section id="game" class="page-section">
+            <button id="openGameBtn" class="page-nav-btn">Game</button>
+            <div class="wip-box">
+                <h3>Circuit Lab Challenge</h3>
+                <p>Click "Game" to open the Octavius Industries Drag & Drop Circuit Calibration Lab!</p>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Connects our external JavaScript file for interactivity -->
+    <!-- FULLSCREEN/DEDICATED GAME PAGE OVERLAY -->
+    <div id="gamePage" class="full-page-overlay hidden">
+        <div class="game-page-card">
+            
+            <header class="game-page-header">
+                <h2>🔬 Octavius Voltage Calibration Lab</h2>
+                <button id="closeGameBtn" class="close-btn">✖ Back to Home</button>
+            </header>
+
+            <!-- Voltage Readout Dashboard -->
+            <div class="voltage-dashboard">
+                <div class="v-card">
+                    <span class="v-label">INPUT</span>
+                    <span id="inputVolts" class="v-val">5V</span>
+                </div>
+                <div class="v-card">
+                    <span class="v-label">CURRENT</span>
+                    <span id="currentVolts" class="v-val">5V</span>
+                </div>
+                <div class="v-card target-v-card">
+                    <span class="v-label">TARGET</span>
+                    <span id="targetVolts" class="v-val">8V</span>
+                </div>
+            </div>
+
+            <!-- Lab Layout: Sidebar Inventory + Circuit Grid -->
+            <div class="lab-workspace">
+                
+                <!-- Sidebar Piece Inventory (Drag Source) -->
+                <div class="inventory-panel">
+                    <h3>PIECE PALETTE</h3>
+                    <p class="sub-text">Drag chips onto board slots!</p>
+
+                    <div class="palette-list" id="paletteList">
+                        <!-- Draggable Pieces -->
+                        <div class="palette-piece" draggable="true" data-shape="horizontal" data-modifier="0">
+                            <span class="icon">━</span>
+                            <span class="piece-label">Wire</span>
+                        </div>
+                        <div class="palette-piece" draggable="true" data-shape="corner-rb" data-modifier="2">
+                            <span class="icon">┏</span>
+                            <span class="piece-label">+2V</span>
+                        </div>
+                        <div class="palette-piece" draggable="true" data-shape="vertical" data-modifier="1">
+                            <span class="icon">┃</span>
+                            <span class="piece-label">+1V</span>
+                        </div>
+                        <div class="palette-piece" draggable="true" data-shape="corner-rt" data-modifier="0">
+                            <span class="icon">┗</span>
+                            <span class="piece-label">Elbow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3x3 Circuit Grid Drop Zone -->
+                <div class="doc-grid" id="docGrid">
+                    <!-- Row 1 -->
+                    <div class="grid-slot fixed source powered-source" data-row="0" data-col="0">⚡ PWR</div>
+                    <div class="grid-slot drop-target" data-row="0" data-col="1"></div>
+                    <div class="grid-slot drop-target" data-row="0" data-col="2"></div>
+
+                    <!-- Row 2 -->
+                    <div class="grid-slot drop-target" data-row="1" data-col="0"></div>
+                    <div class="grid-slot drop-target" data-row="1" data-col="1"></div>
+                    <div class="grid-slot drop-target" data-row="1" data-col="2"></div>
+
+                    <!-- Row 3 -->
+                    <div class="grid-slot drop-target" data-row="2" data-col="0"></div>
+                    <div class="grid-slot drop-target" data-row="2" data-col="1"></div>
+                    <div class="grid-slot fixed target" data-row="2" data-col="2">🎯 OUT</div>
+                </div>
+
+            </div>
+
+            <!-- Game Status & Reset Button -->
+            <div class="game-controls">
+                <p id="circuitStatus" class="status-msg">Drag circuit pieces into grid slots to route power to the target!</p>
+                <button id="resetLabBtn" class="game-btn">Clear Board</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Floating LED Contact Button (Bottom-Left) -->
+    <button id="contactBtn" class="led-btn">
+        <span class="btn-text">Get in Touch</span>
+    </button>
+
+    <!-- Global Floating Back to Top Button (Bottom-Right) -->
+    <button id="backToTopBtn" class="back-to-top hidden" aria-label="Back to Top">▲</button>
+
+    <!-- External JavaScript File -->
     <script src="script.js"></script>
 </body>
 </html>
