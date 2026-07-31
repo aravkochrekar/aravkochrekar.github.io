@@ -1,34 +1,69 @@
-/* Global styles for the portfolio background with a STEM / Engineering theme */
+/* Global Blueprint Background with Animated Grid Overlay */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Deep engineering dark-mode background with a subtle technical grid overlay */
-    background-color: #0b1329;
+    /* Rich Engineering Blueprint Dark Blue Background */
+    background-color: #0d1b2a;
+    /* Blueprint Grid Pattern Overlay */
     background-image: 
-        linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-        radial-gradient(circle at 50% 50%, #1e293b 0%, #0b1329 100%);
-    background-size: 30px 30px, 30px 30px, 100% 100%;
+        linear-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.1) 1px, transparent 1px);
+    background-size: 25px 25px;
     min-height: 100vh;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* Main card container styled like a professional engineering profile */
+/* Floating STEM/Engineering Sticker Styling */
+.sticker {
+    position: absolute;
+    font-size: 38px;
+    background: #1e293b;
+    padding: 10px;
+    border-radius: 16px;
+    border: 3px solid #38bdf8;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), inset 0 0 8px rgba(56, 189, 248, 0.3);
+    user-select: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Hover effect on stickers: Makes them feel like physical pop-out stickers */
+.sticker:hover {
+    transform: scale(1.25) rotate(0deg) !important;
+    box-shadow: 0 12px 24px rgba(56, 189, 248, 0.5);
+    z-index: 10;
+}
+
+/* Positioning & slight cartoon rotations for individual stickers */
+.sticker-gear { top: 12%; left: 10%; transform: rotate(-12deg); }
+.sticker-atom { top: 20%; right: 12%; transform: rotate(15deg); }
+.sticker-rocket { bottom: 15%; left: 8%; transform: rotate(-8deg); }
+.sticker-chip { bottom: 18%; right: 10%; transform: rotate(10deg); }
+.sticker-ruler { top: 50%; left: 4%; transform: rotate(20deg); }
+.sticker-robot { top: 48%; right: 5%; transform: rotate(-15deg); }
+
+/* Main Card styled with cartoon pop and clean blueprint edges */
 .portfolio-card {
     background-color: #111827;
-    border: 1px solid #1f2937;
+    border: 3px solid #38bdf8;
     padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(14, 165, 233, 0.1);
+    border-radius: 24px;
+    /* Solid offset shadow for a sleek cartoon/blueprint pop effect */
+    box-shadow: 8px 8px 0px #0284c7, 0 20px 40px rgba(0, 0, 0, 0.6);
     text-align: center;
     max-width: 450px;
     width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
-/* Emoji avatar placeholder styling with a tech glow */
+/* Tech Avatar Circle */
 .avatar-placeholder {
     font-size: 50px;
     background: #1f2937;
@@ -37,11 +72,11 @@ body {
     line-height: 90px;
     border-radius: 50%;
     margin: 0 auto 15px auto;
-    box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);
-    border: 2px solid #0ea5e9;
+    border: 3px solid #38bdf8;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
 }
 
-/* Header typography */
+/* Main Title Typography */
 h1 {
     color: #f3f4f6;
     margin: 0 0 5px 0;
@@ -53,67 +88,79 @@ h1 {
     color: #38bdf8;
     font-size: 15px;
     margin-bottom: 25px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
-/* Section headings */
+/* Section Titles */
 h2 {
     color: #93c5fd;
     font-size: 18px;
     margin-top: 20px;
     margin-bottom: 10px;
-    border-bottom: 2px solid #1f2937;
+    border-bottom: 2px dashed #38bdf8;
     padding-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* About me paragraph */
+/* Paragraph text */
 .about-section p {
-    color: #9ca3af;
+    color: #d1d5db;
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
-/* Skills tags layout */
+/* Skills Grid Layout */
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: 25px;
 }
 
-/* Individual skill badges styled like microchips or code tags */
+/* Skill Tags styled like microchip stickers */
 .skill-tag {
-    background-color: rgba(14, 165, 233, 0.1);
+    background-color: #1e293b;
     color: #38bdf8;
-    border: 1px solid rgba(14, 165, 233, 0.3);
-    padding: 6px 12px;
-    border-radius: 20px;
+    border: 2px solid #38bdf8;
+    padding: 6px 14px;
+    border-radius: 12px;
     font-size: 13px;
     font-weight: bold;
+    box-shadow: 3px 3px 0px #0284c7;
+    transition: transform 0.2s ease;
 }
 
-/* Interactive call-to-action button */
-button {
-    background: linear-gradient(135deg, #0284c7, #0ea5e9);
-    color: white;
-    border: none;
-    padding: 12px 28px;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    width: 100%;
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
-}
-
-/* Button hover and active effects */
-button:hover {
-    background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+.skill-tag:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(14, 165, 233, 0.5);
+}
+
+/* Interactive Action Button */
+button {
+    background: #0284c7;
+    color: white;
+    border: 2px solid #38bdf8;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    /* Cartoon pop offset shadow */
+    box-shadow: 4px 4px 0px #38bdf8;
+    transition: all 0.2s ease;
+}
+
+/* Button Hover and Press Animations */
+button:hover {
+    background: #0ea5e9;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #38bdf8;
+}
+
+button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #38bdf8;
 }
