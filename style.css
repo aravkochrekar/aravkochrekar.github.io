@@ -84,9 +84,11 @@ body {
     z-index: 2;
 }
 
-/* Profile Avatar */
+/* Profile Avatar - Updated for text initials instead of emojis */
 .avatar-placeholder {
-    font-size: 45px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #38bdf8;
     background: #1f2937;
     width: 85px;
     height: 85px;
