@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- Main Card Container (Wider, fixed max-height) -->
+    <!-- Main Card Container -->
     <main class="portfolio-card">
         
         <!-- Header Section -->
@@ -41,10 +41,46 @@
 
         <!-- GAME PAGE SECTION -->
         <section id="game" class="page-section">
-            <a href="#game" class="page-nav-btn">Game</a>
-            <div class="wip-box">
-                <h3>Work in Progress</h3>
-                <p>An interactive game is currently under construction. Stay tuned!</p>
+            <a href="#game" class="page-nav-btn">Game: Doc Ock Circuit Lab</a>
+            
+            <!-- Doc Ock Style Circuit Game Area -->
+            <div class="game-container">
+                <div class="game-header">
+                    <h3>🔬 Octavius Industries Voltage Calibration</h3>
+                    <p>Click grid tiles to toggle components! Match the output voltage to the target voltage to power up the device.</p>
+                </div>
+
+                <!-- Voltage Readout Dashboard -->
+                <div class="voltage-dashboard">
+                    <div class="voltage-card">
+                        <span class="label">INPUT VOLTAGE</span>
+                        <span id="inputVoltage" class="val">5V</span>
+                    </div>
+                    <div class="voltage-card">
+                        <span class="label">CURRENT OUTPUT</span>
+                        <span id="currentVoltage" class="val">5V</span>
+                    </div>
+                    <div class="voltage-card target-card">
+                        <span class="label">TARGET VOLTAGE</span>
+                        <span id="targetVoltage" class="val">7V</span>
+                    </div>
+                </div>
+
+                <!-- Doc Ock Circuit Grid -->
+                <div class="doc-grid" id="docGrid">
+                    <div class="grid-cell fixed">⚡ PWR</div>
+                    <button class="grid-cell interactive" data-type="wire" id="cell-1">━</button>
+                    <button class="grid-cell interactive" data-type="boost" id="cell-2">+1V</button>
+                    <button class="grid-cell interactive" data-type="wire" id="cell-3">━</button>
+                    <button class="grid-cell interactive" data-type="damp" id="cell-4">-1V</button>
+                    <div class="grid-cell fixed">🎯 OUT</div>
+                </div>
+
+                <!-- Game Status & Reset Controls -->
+                <div class="game-controls">
+                    <p id="gameStatus" class="status-text">Status: Voltage Mismatch — Adjust Components</p>
+                    <button id="resetCircuitBtn" class="game-btn">Reset Board</button>
+                </div>
             </div>
         </section>
 
