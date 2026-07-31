@@ -61,37 +61,29 @@ h1 {
     font-weight: 600;
 }
 
-/* Navigation Links Bar */
-.navbar {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #1f2937;
-    padding-bottom: 12px;
-}
-
-/* Updated Nav Links - Bright Blue color for visibility */
-.nav-link {
+/* Page Section Button Headers (Replaces the old navbar) */
+.page-nav-btn {
+    display: block;
     color: #38bdf8;
-    text-decoration: none;
+    background: #1e293b;
+    border: 2px solid #38bdf8;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 16px;
     font-weight: bold;
-    font-size: 14px;
-    padding: 6px 14px;
-    border-radius: 8px;
-    border: 1px solid rgba(56, 189, 248, 0.3);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 20px 0 10px 0;
+    box-shadow: 3px 3px 0px #0284c7;
     transition: all 0.2s ease;
 }
 
-.nav-link:hover {
-    color: #ffffff;
-    background: rgba(56, 189, 248, 0.2);
-}
-
-.nav-link.active {
+.page-nav-btn:hover {
     color: #ffffff;
     background: #0284c7;
-    border-color: #38bdf8;
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 0px #38bdf8;
 }
 
 /* Scrollable Container Window */
@@ -99,7 +91,6 @@ h1 {
     max-height: 380px;
     overflow-y: auto;
     padding-right: 8px;
-    /* Enables smooth scrolling */
     scroll-behavior: smooth;
 }
 
@@ -134,33 +125,27 @@ h2 {
     letter-spacing: 1px;
 }
 
-.about-section p {
-    color: #d1d5db;
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-/* Work in Progress Card Style - Updated with bright blue text */
+/* Work in Progress Card Style - High Contrast Blue Text */
 .wip-box {
     background: #1e293b;
-    border: 2px dashed #0284c7;
+    border: 2px dashed #38bdf8;
     border-radius: 12px;
     padding: 25px 15px;
-    margin: 20px 0;
+    margin: 10px 0 20px 0;
 }
 
 .wip-box h3 {
-    color: #38bdf8; /* Bright blue heading */
+    color: #38bdf8; /* Bright blueprint cyan heading */
     margin: 0 0 10px 0;
     font-size: 18px;
     font-weight: bold;
 }
 
 .wip-box p {
-    color: #93c5fd; /* Light blue descriptive text */
+    color: #93c5fd; /* Light blueprint blue text */
     font-size: 14px;
     margin: 0;
+    line-height: 1.5;
 }
 
 /* Skills Grid Layout */
@@ -188,7 +173,7 @@ h2 {
     transform: translateY(-2px);
 }
 
-/* Button Styling */
+/* Action Button Styling */
 button {
     background: #0284c7;
     color: white;
@@ -214,7 +199,7 @@ button:active {
     box-shadow: 2px 2px 0px #38bdf8;
 }
 
-/* Floating Back to Top Button (Bottom Right) */
+/* Floating Back to Top Button */
 #backToTopBtn {
     position: absolute;
     bottom: 20px;
@@ -235,7 +220,6 @@ button:active {
     transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
-/* Utility Class to Hide the Button when at the top */
 .hidden {
     opacity: 0;
     pointer-events: none;
