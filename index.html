@@ -19,72 +19,87 @@
             <p class="tagline">Aspiring Engineer & Tech Enthusiast</p>
         </header>
 
-        <!-- DEDICATED PAGE SECTIONS -->
-
-        <!-- ABOUT ME PAGE SECTION -->
+        <!-- DEDICATED PAGE BUTTONS ON HOME -->
+        
+        <!-- ABOUT ME SECTION -->
         <section id="about" class="page-section">
-            <a href="#about" class="page-nav-btn">About Me</a>
+            <a href="#about-page" class="page-nav-btn">About Me</a>
             <div class="wip-box">
                 <h3>Work in Progress</h3>
                 <p>I will be sharing my background, interests, skills, and STEM journey here soon!</p>
             </div>
         </section>
 
-        <!-- PROJECTS PAGE SECTION -->
+        <!-- PROJECTS SECTION -->
         <section id="projects" class="page-section">
-            <a href="#projects" class="page-nav-btn">Projects</a>
+            <a href="#projects-page" class="page-nav-btn">Projects</a>
             <div class="wip-box">
                 <h3>Work in Progress</h3>
                 <p>I will be showcasing my engineering, coding, and robotics projects here soon!</p>
             </div>
         </section>
 
-        <!-- GAME PAGE SECTION -->
+        <!-- GAME SECTION BUTTON -->
         <section id="game" class="page-section">
-            <a href="#game" class="page-nav-btn">Game: Doc Ock Circuit Lab</a>
-            
-            <!-- Doc Ock Style Circuit Game Area -->
-            <div class="game-container">
-                <div class="game-header">
-                    <h3>🔬 Octavius Industries Voltage Calibration</h3>
-                    <p>Click grid tiles to toggle components! Match the output voltage to the target voltage to power up the device.</p>
-                </div>
-
-                <!-- Voltage Readout Dashboard -->
-                <div class="voltage-dashboard">
-                    <div class="voltage-card">
-                        <span class="label">INPUT VOLTAGE</span>
-                        <span id="inputVoltage" class="val">5V</span>
-                    </div>
-                    <div class="voltage-card">
-                        <span class="label">CURRENT OUTPUT</span>
-                        <span id="currentVoltage" class="val">5V</span>
-                    </div>
-                    <div class="voltage-card target-card">
-                        <span class="label">TARGET VOLTAGE</span>
-                        <span id="targetVoltage" class="val">7V</span>
-                    </div>
-                </div>
-
-                <!-- Doc Ock Circuit Grid -->
-                <div class="doc-grid" id="docGrid">
-                    <div class="grid-cell fixed">⚡ PWR</div>
-                    <button class="grid-cell interactive" data-type="wire" id="cell-1">━</button>
-                    <button class="grid-cell interactive" data-type="boost" id="cell-2">+1V</button>
-                    <button class="grid-cell interactive" data-type="wire" id="cell-3">━</button>
-                    <button class="grid-cell interactive" data-type="damp" id="cell-4">-1V</button>
-                    <div class="grid-cell fixed">🎯 OUT</div>
-                </div>
-
-                <!-- Game Status & Reset Controls -->
-                <div class="game-controls">
-                    <p id="gameStatus" class="status-text">Status: Voltage Mismatch — Adjust Components</p>
-                    <button id="resetCircuitBtn" class="game-btn">Reset Board</button>
-                </div>
+            <button id="openGameBtn" class="page-nav-btn">Game</button>
+            <div class="wip-box">
+                <h3>Circuit Lab Challenge</h3>
+                <p>Click "Game" to open the dedicated Octavius Industries Voltage Calibration Lab!</p>
             </div>
         </section>
 
     </main>
+
+    <!-- FULLSCREEN/DEDICATED GAME PAGE (Opens when clicking Game) -->
+    <div id="gamePage" class="full-page-overlay hidden">
+        <div class="game-page-card">
+            
+            <header class="game-page-header">
+                <h2>🔬 Octavius Voltage Calibration Lab</h2>
+                <button id="closeGameBtn" class="close-btn">✖ Back to Home</button>
+            </header>
+
+            <!-- Voltage Dashboard -->
+            <div class="voltage-dashboard">
+                <div class="v-card">
+                    <span class="v-label">INPUT</span>
+                    <span id="inputVolts" class="v-val">5V</span>
+                </div>
+                <div class="v-card">
+                    <span class="v-label">CURRENT</span>
+                    <span id="currentVolts" class="v-val">5V</span>
+                </div>
+                <div class="v-card target-v-card">
+                    <span class="v-label">TARGET</span>
+                    <span id="targetVolts" class="v-val">8V</span>
+                </div>
+            </div>
+
+            <!-- True Doc Ock 3x3 Circuit Grid -->
+            <div class="circuit-board" id="circuitBoard">
+                <!-- Row 1 -->
+                <div class="c-tile fixed source" data-type="start">⚡ PWR</div>
+                <button class="c-tile pipe" data-rotation="90" data-shape="straight" data-modifier="0" id="tile-1">━</button>
+                <button class="c-tile pipe" data-rotation="180" data-shape="corner" data-modifier="2" id="tile-2">┗<span class="badge">+2V</span></button>
+
+                <!-- Row 2 -->
+                <button class="c-tile pipe" data-rotation="0" data-shape="corner" data-modifier="0" id="tile-3">┏</button>
+                <button class="c-tile pipe" data-rotation="270" data-shape="straight" data-modifier="1" id="tile-4">━<span class="badge">+1V</span></button>
+                <button class="c-tile pipe" data-rotation="90" data-shape="corner" data-modifier="-1" id="tile-5">┓<span class="badge">-1V</span></button>
+
+                <!-- Row 3 -->
+                <button class="c-tile pipe" data-rotation="180" data-shape="straight" data-modifier="0" id="tile-6">━</button>
+                <button class="c-tile pipe" data-rotation="0" data-shape="corner" data-modifier="0" id="tile-7">┏</button>
+                <div class="c-tile fixed target" data-type="end">🎯 OUT</div>
+            </div>
+
+            <div class="game-controls">
+                <p id="circuitStatus" class="status-msg">Click tiles to rotate path pieces and align the target voltage!</p>
+                <button id="resetLabBtn" class="game-btn">Scramble Circuit</button>
+            </div>
+
+        </div>
+    </div>
 
     <!-- Floating LED Contact Button (Bottom-Left) -->
     <button id="contactBtn" class="led-btn">
