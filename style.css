@@ -6,7 +6,6 @@ html {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #0d1b2a;
-    /* Blueprint Grid Overlay across entire screen */
     background-image: 
         linear-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px),
         linear-gradient(90deg, rgba(56, 189, 248, 0.12) 1px, transparent 1px);
@@ -68,6 +67,7 @@ h1 {
 /* Page Navigation Buttons */
 .page-nav-btn {
     display: block;
+    width: 100%;
     color: #38bdf8;
     background: #1e293b;
     border: 2px solid #38bdf8;
@@ -80,6 +80,7 @@ h1 {
     letter-spacing: 1px;
     margin: 25px 0 15px 0;
     box-shadow: 4px 4px 0px #0284c7;
+    cursor: pointer;
     transition: all 0.2s ease;
 }
 
@@ -88,11 +89,6 @@ h1 {
     background: #0284c7;
     transform: translateY(-2px);
     box-shadow: 6px 6px 0px #38bdf8;
-}
-
-/* Page Section Blocks */
-.page-section {
-    padding-bottom: 10px;
 }
 
 /* Work in Progress Box */
@@ -118,135 +114,172 @@ h1 {
     line-height: 1.6;
 }
 
-/* DOC OCK CIRCUIT GAME STYLING */
-.game-container {
-    background: #1e293b;
-    border: 2px solid #38bdf8;
-    border-radius: 16px;
-    padding: 25px;
-    margin-top: 15px;
-    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+/* DEDICATED GAME PAGE OVERLAY (Full Viewport) */
+.full-page-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(13, 27, 42, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: opacity 0.3s ease;
 }
 
-.game-header h3 {
-    color: #38bdf8;
-    margin: 0 0 5px 0;
-    font-size: 20px;
+.game-page-card {
+    background: #111827;
+    border: 3px solid #38bdf8;
+    border-radius: 24px;
+    padding: 30px;
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+    text-align: center;
 }
 
-.game-header p {
-    color: #93c5fd;
-    font-size: 14px;
+.game-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
+    border-bottom: 2px dashed #38bdf8;
+    padding-bottom: 12px;
 }
 
-/* Voltage Dashboard Display */
+.game-page-header h2 {
+    color: #38bdf8;
+    font-size: 20px;
+    margin: 0;
+}
+
+.close-btn {
+    background: #1e293b;
+    color: #38bdf8;
+    border: 2px solid #38bdf8;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background: #ef4444;
+    color: white;
+    border-color: #ef4444;
+}
+
+/* Voltage Dashboard */
 .voltage-dashboard {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-.voltage-card {
+.v-card {
     background: #0f172a;
     border: 2px solid #334155;
-    padding: 10px 18px;
+    padding: 10px 16px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 80px;
 }
 
-.voltage-card .label {
+.v-label {
     font-size: 10px;
     color: #94a3b8;
     font-weight: 800;
-    letter-spacing: 0.5px;
 }
 
-.voltage-card .val {
+.v-val {
     font-size: 20px;
     font-weight: 900;
     color: #38bdf8;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
-.target-card {
+.target-v-card {
     border-color: #38bdf8;
     box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
 }
 
-.target-card .val {
+.target-v-card .v-val {
     color: #ffffff;
 }
 
-/* Circuit Grid Layout */
-.doc-grid {
-    display: flex;
+/* 3x3 Circuit Board */
+.circuit-board {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    grid-gap: 12px;
     justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-    flex-wrap: wrap;
+    margin: 20px auto;
 }
 
-.grid-cell {
-    width: 85px;
-    height: 85px;
-    font-size: 18px;
+.c-tile {
+    width: 90px;
+    height: 90px;
+    font-size: 32px;
     font-weight: bold;
     background-color: #0f172a;
-    color: #38bdf8;
+    color: #64748b;
     border: 2px solid #334155;
-    border-radius: 12px;
+    border-radius: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
+    position: relative;
+    transition: transform 0.2s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
-.grid-cell.interactive {
+.c-tile.pipe {
     cursor: pointer;
-    border-color: #0284c7;
-    transition: all 0.2s ease;
 }
 
-.grid-cell.interactive:hover {
+.c-tile.pipe:hover {
     border-color: #38bdf8;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
 }
 
-/* Component Types */
-.grid-cell[data-type="boost"] {
-    background: rgba(16, 185, 129, 0.15);
-    color: #10b981;
-    border-color: #10b981;
+/* Powered Active Path Highlight */
+.c-tile.powered {
+    background-color: #0284c7;
+    color: #ffffff;
+    border-color: #38bdf8;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
 }
 
-.grid-cell[data-type="damp"] {
-    background: rgba(239, 68, 68, 0.15);
-    color: #ef4444;
-    border-color: #ef4444;
-}
-
-.grid-cell.fixed {
+.c-tile.fixed {
+    font-size: 14px;
     background: #1e293b;
     border-color: #38bdf8;
     color: #ffffff;
-    font-size: 14px;
 }
 
-/* Calibration Calibrated Win Glow */
-.game-container.calibrated {
-    border-color: #10b981;
-    box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+.badge {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    font-size: 10px;
+    background: #0f172a;
+    color: #10b981;
+    border: 1px solid #10b981;
+    padding: 1px 4px;
+    border-radius: 4px;
 }
 
-/* Status & Controls */
-.status-text {
+.status-msg {
     color: #f3f4f6;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     margin-bottom: 15px;
 }
