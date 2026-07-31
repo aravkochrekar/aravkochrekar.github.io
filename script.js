@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show/Hide "Back to Top" button based on window scroll position
     window.addEventListener('scroll', () => {
-        // Show button if user scrolls down more than 150px on the browser page
         if (window.scrollY > 150) {
             backToTopBtn.classList.remove('hidden');
         } else {
