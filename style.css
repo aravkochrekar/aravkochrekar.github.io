@@ -1,0 +1,49 @@
+/* Global styles for the entire page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card container to hold our content neatly */
+.container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+}
+
+/* Heading style */
+h1 {
+    color: #2d3436;
+    margin-bottom: 10px;
+}
+
+/* Paragraph text style */
+p {
+    color: #636e72;
+    margin-bottom: 25px;
+}
+
+/* Interactive button style */
+button {
+    background-color: #0984e3;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #74b9ff;
+}
