@@ -1,49 +1,104 @@
-/* Global styles for the entire page */
+/* Global styles for the portfolio background */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #74b9ff, #a29bfe);
-    height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-/* Card container to hold our content neatly */
-.container {
-    background-color: white;
+/* Main card container styled like a professional profile */
+.portfolio-card {
+    background-color: #ffffff;
     padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     text-align: center;
-    max-width: 400px;
+    max-width: 450px;
+    width: 100%;
 }
 
-/* Heading style */
+/* Emoji avatar placeholder styling */
+.avatar-placeholder {
+    font-size: 50px;
+    background: #eef2f3;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Header typography */
 h1 {
-    color: #2d3436;
-    margin-bottom: 10px;
+    color: #2c3e50;
+    margin: 0 0 5px 0;
+    font-size: 28px;
 }
 
-/* Paragraph text style */
-p {
-    color: #636e72;
+.tagline {
+    color: #7f8c8d;
+    font-size: 15px;
     margin-bottom: 25px;
 }
 
-/* Interactive button style */
-button {
-    background-color: #0984e3;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* Section headings */
+h2 {
+    color: #34495e;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 5px;
 }
 
-/* Button hover effect */
+/* About me paragraph */
+.about-section p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Skills tags layout */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+/* Individual skill badges */
+.skill-tag {
+    background-color: #e0f2fe;
+    color: #0284c7;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Interactive call-to-action button */
+button {
+    background-color: #0ea5e9;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+/* Button hover and active effects */
 button:hover {
-    background-color: #74b9ff;
+    background-color: #0284c7;
+    transform: translateY(-2px);
 }
