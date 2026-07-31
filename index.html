@@ -3,113 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arav Kochrekar - STEM Portfolio</title>
-    <!-- Link to external CSS styles -->
+    <title>My STEM Portfolio</title>
+    <!-- Connects our external CSS stylesheet for styling -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Main Card Container -->
+    <!-- Main card wrapper that holds our portfolio contents -->
     <main class="portfolio-card">
         
-        <!-- Header Section -->
+        <!-- Header Section: Holds profile avatar, name, and tagline -->
         <header class="profile-header">
-            <div class="avatar-placeholder">AK</div>
-            <h1>Arav Kochrekar</h1>
-            <p class="tagline">Aspiring Engineer & Tech Enthusiast</p>
+            <div class="avatar-placeholder">💻</div>
+            <h1>Alex Developer</h1>
+            <p class="tagline">Aspiring Web Developer & Tech Enthusiast</p>
         </header>
 
-        <!-- DEDICATED PAGE BUTTONS ON HOME -->
+        <!-- About Section: Short intro paragraph -->
+        <section class="about-section">
+            <h2>About Me</h2>
+            <p>Welcome to my corner of the web! I love learning how to code, building creative websites, and exploring new technologies.</p>
+        </section>
+
+        <!-- Skills Section: Grid of tech badges -->
+        <section class="skills-section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Git & GitHub</span>
+            </div>
+        </section>
         
-        <!-- ABOUT ME SECTION -->
-        <section id="about" class="page-section">
-            <a href="#about-page" class="page-nav-btn">About Me</a>
-            <div class="wip-box">
-                <h3>Work in Progress</h3>
-                <p>I will be sharing my background, interests, skills, and STEM journey here soon!</p>
-            </div>
-        </section>
-
-        <!-- PROJECTS SECTION -->
-        <section id="projects" class="page-section">
-            <a href="#projects-page" class="page-nav-btn">Projects</a>
-            <div class="wip-box">
-                <h3>Work in Progress</h3>
-                <p>I will be showcasing my engineering, coding, and robotics projects here soon!</p>
-            </div>
-        </section>
-
-        <!-- GAME SECTION BUTTON -->
-        <section id="game" class="page-section">
-            <button id="openGameBtn" class="page-nav-btn">Game</button>
-            <div class="wip-box">
-                <h3>Circuit Lab Challenge</h3>
-                <p>Click "Game" to open the dedicated Octavius Industries Voltage Calibration Lab!</p>
-            </div>
-        </section>
-
+        <!-- Action Button: Triggers JavaScript on click -->
+        <button id="contactBtn">Get in Touch</button>
     </main>
 
-    <!-- FULLSCREEN/DEDICATED GAME PAGE (Opens when clicking Game) -->
-    <div id="gamePage" class="full-page-overlay hidden">
-        <div class="game-page-card">
-            
-            <header class="game-page-header">
-                <h2>🔬 Octavius Voltage Calibration Lab</h2>
-                <button id="closeGameBtn" class="close-btn">✖ Back to Home</button>
-            </header>
-
-            <!-- Voltage Dashboard -->
-            <div class="voltage-dashboard">
-                <div class="v-card">
-                    <span class="v-label">INPUT</span>
-                    <span id="inputVolts" class="v-val">5V</span>
-                </div>
-                <div class="v-card">
-                    <span class="v-label">CURRENT</span>
-                    <span id="currentVolts" class="v-val">5V</span>
-                </div>
-                <div class="v-card target-v-card">
-                    <span class="v-label">TARGET</span>
-                    <span id="targetVolts" class="v-val">8V</span>
-                </div>
-            </div>
-
-            <!-- True Doc Ock 3x3 Circuit Grid -->
-            <div class="circuit-board" id="circuitBoard">
-                <!-- Row 1 -->
-                <div class="c-tile fixed source" data-type="start">⚡ PWR</div>
-                <button class="c-tile pipe" data-rotation="90" data-shape="straight" data-modifier="0" id="tile-1">━</button>
-                <button class="c-tile pipe" data-rotation="180" data-shape="corner" data-modifier="2" id="tile-2">┗<span class="badge">+2V</span></button>
-
-                <!-- Row 2 -->
-                <button class="c-tile pipe" data-rotation="0" data-shape="corner" data-modifier="0" id="tile-3">┏</button>
-                <button class="c-tile pipe" data-rotation="270" data-shape="straight" data-modifier="1" id="tile-4">━<span class="badge">+1V</span></button>
-                <button class="c-tile pipe" data-rotation="90" data-shape="corner" data-modifier="-1" id="tile-5">┓<span class="badge">-1V</span></button>
-
-                <!-- Row 3 -->
-                <button class="c-tile pipe" data-rotation="180" data-shape="straight" data-modifier="0" id="tile-6">━</button>
-                <button class="c-tile pipe" data-rotation="0" data-shape="corner" data-modifier="0" id="tile-7">┏</button>
-                <div class="c-tile fixed target" data-type="end">🎯 OUT</div>
-            </div>
-
-            <div class="game-controls">
-                <p id="circuitStatus" class="status-msg">Click tiles to rotate path pieces and align the target voltage!</p>
-                <button id="resetLabBtn" class="game-btn">Scramble Circuit</button>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Floating LED Contact Button (Bottom-Left) -->
-    <button id="contactBtn" class="led-btn">
-        <span class="btn-text">Get in Touch</span>
-    </button>
-
-    <!-- Global Floating Back to Top Button (Bottom-Right) -->
-    <button id="backToTopBtn" class="back-to-top hidden" aria-label="Back to Top">▲</button>
-
-    <!-- External JavaScript File -->
+    <!-- Connects our external JavaScript file for interactivity -->
     <script src="script.js"></script>
 </body>
 </html>
