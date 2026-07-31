@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- Main Card Container (Wider Layout) -->
+    <!-- Main Card Container (Wider, fixed max-height) -->
     <main class="portfolio-card">
         
         <!-- Header Section -->
@@ -19,25 +19,14 @@
             <p class="tagline">Aspiring Engineer & Tech Enthusiast</p>
         </header>
 
-        <!-- Home Page Content Hub -->
-        <section id="home" class="page-section">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <span class="skill-tag">###</span>
-            </div>
-
-            <!-- Interactive Contact Button -->
-            <button id="contactBtn">Get in Touch</button>
-        </section>
-
-        <!-- 3 DEDICATED PAGE SECTIONS -->
+        <!-- DEDICATED PAGE SECTIONS -->
 
         <!-- ABOUT ME PAGE SECTION -->
         <section id="about" class="page-section">
             <a href="#about" class="page-nav-btn">About Me</a>
             <div class="wip-box">
                 <h3>Work in Progress</h3>
-                <p>I will be sharing my background, interests, and STEM journey here soon!</p>
+                <p>I will be sharing my background, interests, skills, and STEM journey here soon!</p>
             </div>
         </section>
 
@@ -61,7 +50,12 @@
 
     </main>
 
-    <!-- Global Floating Back to Top Button for Full Page -->
+    <!-- Floating LED Contact Button (Bottom-Left) -->
+    <button id="contactBtn" class="led-btn">
+        <span class="btn-text">Get in Touch</span>
+    </button>
+
+    <!-- Global Floating Back to Top Button (Bottom-Right) -->
     <button id="backToTopBtn" class="back-to-top hidden" aria-label="Back to Top">▲</button>
 
     <!-- External JavaScript File -->
