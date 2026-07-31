@@ -71,20 +71,21 @@ h1 {
     padding-bottom: 12px;
 }
 
+/* Updated Nav Links - Bright Blue color for visibility */
 .nav-link {
-    color: #9ca3af;
+    color: #38bdf8;
     text-decoration: none;
     font-weight: bold;
     font-size: 14px;
     padding: 6px 14px;
     border-radius: 8px;
-    border: 1px solid transparent;
+    border: 1px solid rgba(56, 189, 248, 0.3);
     transition: all 0.2s ease;
 }
 
 .nav-link:hover {
-    color: #38bdf8;
-    background: rgba(56, 189, 248, 0.1);
+    color: #ffffff;
+    background: rgba(56, 189, 248, 0.2);
 }
 
 .nav-link.active {
@@ -98,6 +99,7 @@ h1 {
     max-height: 380px;
     overflow-y: auto;
     padding-right: 8px;
+    /* Enables smooth scrolling */
     scroll-behavior: smooth;
 }
 
@@ -139,7 +141,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Work in Progress Card Style */
+/* Work in Progress Card Style - Updated with bright blue text */
 .wip-box {
     background: #1e293b;
     border: 2px dashed #0284c7;
@@ -149,14 +151,15 @@ h2 {
 }
 
 .wip-box h3 {
-    color: #38bdf8;
+    color: #38bdf8; /* Bright blue heading */
     margin: 0 0 10px 0;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .wip-box p {
-    color: #9ca3af;
-    font-size: 13px;
+    color: #93c5fd; /* Light blue descriptive text */
+    font-size: 14px;
     margin: 0;
 }
 
@@ -209,4 +212,32 @@ button:hover {
 button:active {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0px #38bdf8;
+}
+
+/* Floating Back to Top Button (Bottom Right) */
+#backToTopBtn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    font-size: 18px;
+    border-radius: 50%;
+    background: #0284c7;
+    color: #ffffff;
+    border: 2px solid #38bdf8;
+    box-shadow: 3px 3px 0px #38bdf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+/* Utility Class to Hide the Button when at the top */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
 }
