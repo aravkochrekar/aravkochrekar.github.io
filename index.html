@@ -14,31 +14,60 @@
         
         <!-- Header Section -->
         <header class="profile-header">
-            <!-- Profile avatar with initials AK -->
             <div class="avatar-placeholder">AK</div>
             <h1>Arav Kochrekar</h1>
             <p class="tagline">Aspiring Engineer & Tech Enthusiast</p>
         </header>
 
-        <!-- About Section -->
-        <section class="about-section">
-            <h2>About Me</h2>
-            <p>Welcome to my corner of the web! I love learning how to code, building creative websites, and exploring engineering technologies.</p>
-        </section>
+        <!-- Navigation Bar for Pages -->
+        <nav class="navbar">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#game" class="nav-link">Game</a>
+        </nav>
 
-        <!-- Skills Section -->
-        <section class="skills-section">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <span class="skill-tag">HTML5</span>
-                <span class="skill-tag">CSS3</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Git & GitHub</span>
-            </div>
-        </section>
-        
-        <!-- Interactive Contact Button -->
-        <button id="contactBtn">Get in Touch</button>
+        <!-- Scrollable Page Views Container -->
+        <div class="content-container">
+            
+            <!-- HOME PAGE SECTION (Scrollable Content) -->
+            <section id="home" class="page-section">
+                <h2>About Me</h2>
+                <div class="about-section">
+                    <p>Welcome to my corner of the web! This section is ready for your custom bio text—just let me know what you'd like to put here!</p>
+                </div>
+
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Git & GitHub</span>
+                </div>
+
+                <!-- Interactive Contact Button -->
+                <button id="contactBtn">Get in Touch</button>
+            </section>
+
+            <!-- PROJECTS PAGE SECTION (Work in Progress) -->
+            <section id="projects" class="page-section">
+                <h2>Projects</h2>
+                <div class="wip-box">
+                    <h3>🚧 Work in Progress 🚧</h3>
+                    <p>I will be showcasing my engineering, coding, and robotics projects here soon!</p>
+                </div>
+            </section>
+
+            <!-- GAME PAGE SECTION (Work in Progress) -->
+            <section id="game" class="page-section">
+                <h2>Game</h2>
+                <div class="wip-box">
+                    <h3>🎮 Work in Progress 🎮</h3>
+                    <p>An interactive game is currently under construction. Stay tuned!</p>
+                </div>
+            </section>
+
+        </div>
+
     </main>
 
     <!-- External JavaScript File -->
