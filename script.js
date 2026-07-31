@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Grab contact button
     const contactBtn = document.getElementById('contactBtn');
 
-    // Button click interaction
+    // Button click interaction (Removed rocket emoji)
     contactBtn.addEventListener('click', () => {
-        alert('Thanks for stopping by! Feel free to reach out via email! 🚀');
+        alert('Thanks for stopping by! Feel free to reach out via email!');
     });
 
     // Sticker bounce interaction on click
